@@ -1,0 +1,24 @@
+import threading
+from ultralytics import YOLO
+import cv2
+# def camera():
+#     global frame
+#     camera = cv2.VideoCapture(0)
+#     while True:       
+#         ret, frame = camera.read()
+#         cv2.imshow('frame', frame)
+
+def cube(model):
+    while 1==1:
+        model1 = YOLO(model)
+        results1 = model1.predict('videotest2.mp4', show = True)
+        
+def sqrt(model):
+    while 1==1:
+        model = YOLO(model)
+        results2 = model.predict('videotest2.mp4', show = True)
+    
+if __name__ =="__main__":
+    # threading.Thread(target=camera).start()
+    threading.Thread(target=cube, args=("lanemodel.pt",)).start()
+    threading.Thread(target=sqrt, args=('signmodel.pt',)).start()
